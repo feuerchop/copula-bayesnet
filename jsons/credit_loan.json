@@ -1,0 +1,141 @@
+{
+    "V": ["OpenCreditLines", "DebtToIncome", "CreditGrade", "AmountDelinquent", "Endorsement","FundingOptions","MaxRate","GoodCandidate","AmountRequested","Loan"],
+    "E": [["OpenCreditLines", "CreditGrade"],
+          ["AmountDelinquent", "CreditGrade"],
+          ["DebtToIncome", "CreditGrade"],
+          ["DebtToIncome", "GoodCandidate"],
+          ["CreditGrade", "GoodCandidate"],
+          ["Endorsement", "GoodCandidate"],
+          ["FundingOptions", "CreditGrade"],
+          ["MaxRate", "Loan"],
+          ["AmountRequested", "Loan"],
+          ["GoodCandidate", "Loan"]],
+    "Vdata": {
+        "DebtToIncome":{
+            "mean_base": 10,
+            "mean_scal": [],
+            "parents": null,
+            "variance": 1,
+            "type": "lg",
+            "children": [
+                "CreditGrade",
+                "GoodCandidate"
+            ]
+            },
+        "CreditGrade": {
+            "mean_base": 80,
+            "mean_scal": [
+                0.25,
+                -0.5,
+                0.4,
+                0.1
+            ],
+            "parents": [
+                "OpenCreditLines",
+                "AmountDelinquent",
+                "DebtToIncome",
+                "FundingOptions"
+            ],
+            "variance": 5,
+            "type": "lg",
+            "children": [
+                "GoodCandidate"
+            ]
+        },
+        "GoodCandidate": {
+            "mean_base": 80,
+            "mean_scal": [
+                0.6,
+                -0.2,
+                0.5
+            ],
+            "parents": [
+                "CreditGrade",
+                "DebtToIncome",
+                "Endorsement"
+            ],
+            "variance": 5,
+            "type": "lg",
+            "children": [
+                "Loan"
+            ]
+        },
+        "OpenCreditLines": {
+            "mean_base": 10,
+            "mean_scal": [],
+            "parents": null,
+            "variance": 1,
+            "type": "lg",
+            "children": [
+                "CreditGrade"
+            ]
+        },
+        "Endorsement": {
+            "mean_base": 10,
+            "mean_scal": [],
+            "parents": null,
+            "variance": 1,
+            "type": "lg",
+            "children": [
+                "GoodCandidate"
+            ]
+        },
+        "FundingOptions": {
+            "mean_base": 50,
+            "mean_scal": [],
+            "parents": null,
+            "variance": 30,
+            "type": "lg",
+            "children": [
+                "CreditGrade"
+            ]
+        },
+        "MaxRate": {
+            "mean_base": 50,
+            "mean_scal": [],
+            "parents": null,
+            "variance": 18,
+            "type": "lg",
+            "children": [
+                "Loan"
+            ]
+        },
+        "AmountRequested": {
+            "mean_base": 50,
+            "mean_scal": [],
+            "parents": null,
+            "variance": 12,
+            "type": "lg",
+            "children": [
+                "Loan"
+            ]
+        },
+        "AmountDelinquent": {
+            "mean_base": 50,
+            "mean_scal": [],
+            "parents": null,
+            "variance": 18,
+            "type": "lg",
+            "children": [
+                "CreditGrade"
+            ]
+        },
+        "Loan": {
+            "mean_base": -110,
+            "mean_scal": [
+                2,
+                1,
+                0.5
+            ],
+            "parents": [
+                "GoodCandidate",
+                "MaxRate",
+                "AmountRequested"
+            ],
+            "variance": 10,
+            "type": "lg",
+            "children": null
+        }
+
+    }
+}

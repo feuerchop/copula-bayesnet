@@ -1,0 +1,67 @@
+{
+    "V": ["A", "B", "C", "D", "E"],
+    "E": [["A", "C"],
+          ["B", "C"],
+          ["C", "E"],
+          ["D", "E"]],
+    "Vdata": {
+        "A": {
+            "mean_base": 1.5,
+            "mean_scal": [],
+            "parents": null,
+            "variance": 2,
+            "type": "lg",
+            "children": [
+                "C"
+            ]
+        },
+        "B": {
+            "mean_base": 2.5,
+            "mean_scal": [],
+            "parents": null,
+            "variance": 1.5,
+            "type": "lg",
+            "children": [
+                "C"
+            ]
+        },
+        "C": {
+            "mean_base": 1.2,
+            "mean_scal": [
+                0.75,
+                0.75
+            ],
+            "parents": [
+                "A",
+                "B"
+            ],
+            "variance": 2.5,
+            "type": "lg",
+            "children": ["E"]
+        },
+        "D": {
+              "mean_base": 1.2,
+              "mean_scal": [],
+              "parents": null,
+              "variance": 0.5,
+              "type": "lg",
+              "children": [
+                "E"
+              ]
+        },
+        "E": {
+              "mean_base": 2.5,
+              "mean_scal": [
+                  1.5,
+                  1.5
+              ],
+              "parents": [
+                  "C",
+                  "D"
+              ],
+              "variance": 1.5,
+              "type": "lg",
+              "children": null
+          }
+    }
+}
